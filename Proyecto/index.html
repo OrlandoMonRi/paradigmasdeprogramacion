@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <TABLE border="1">
+        <TR>
+             <TD> Mesa 1 </TD> <TD> Mesa 2 </TD> <TD> Mesa 3 </TD>
+        </TR> <TR>
+             <TD><img src="Off.png" alt="1" id="1" onclick="cambiar1();"></TD> <TD> <img src="Off.png" alt="2" id="2" onclick="cambiar2();"></TD> <TD> <img src="Off.png" alt="3" id="3" onclick="cambiar3();"></TD>
+   </TR>
+   <TR>
+             <TD>Hora inicial: <P id="reloj" ></P> <br> Hora final: <P id="reloj2" ></P> <br> Total: <P id="total1"></P> </TD> <TD> Hora inicial: <P id="reloj3" ></P> <br> Hora final: <P id="reloj4" ></P> <br> Total:  <P id="total2"></P> </TD> <TD> Hora inicial: <P id="reloj5" ></P> <br> Hora final: <P id="reloj6" ></P> <br> Total: <P id="total3"></P>  </TD>
+        </TR> <TR>
+             <TD> Mesa 4 </TD> <TD> Mesa 5 </TD> <TD> Mesa 6 </TD>
+   </TR>
+   <TR>
+             <TD><img src="Off.png" alt="4" id="4" onclick="cambiar4();"> </TD> <TD> <img src="Off.png" alt="5" id="5" onclick="cambiar5();"> </TD> <TD> <img src="Off.png" alt="6" id="6" onclick="cambiar6();"></TD>
+        </TR> <TR>
+            <TD>Hora inicial: <P id="reloj7" ></P> <br> Hora final: <P id="reloj8" ></P> <br> Total: <P id="total4"></P> </TD> <TD> Hora inicial: <P id="reloj9" ></P> <br> Hora final: <P id="reloj10" ></P> <br> Total: <P id="total5"></P>  </TD> <TD> Hora inicial: <P id="reloj11" ></P> <br> Hora final: <P id="reloj12" ></P> <br> Total:  <P id="total6"></P> </TD>
+   </TR>
+   </TABLE>
+
+
+    <script>
+        var t1 = 0;
+        var t2 = 0;
+        var t3 = 0;
+        var t4 = 0;
+        var t5 = 0;
+        var t6 = 0;
+        var c1 = 0;
+        var c2 = 0;
+        var c3 = 0;
+        var c4 = 0;
+        var c5 = 0;
+        var c6 = 0;
+        var total1 = 0;
+        var total2 = 0;
+        var total3 = 0;
+        var total4 = 0;
+        var total5 = 0;
+        var total6 = 0;
+        function contador1(){
+            c1 = c1 +1;
+        }
+        function contador2(){
+            c2 = c2 +1;
+        }
+        function contador3(){
+            c3 = c3 +1;
+        }
+        function contador4(){
+            c4 = c4 +1;
+        }
+        function contador5(){
+            c5 = c5 +1;
+        }
+        function contador6(){
+            c6 = c6 +1;
+        }
+
+        function cambiar1(){
+            let foco = document.getElementById('1');
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+                
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+            if(foco.src.match("Off")){
+                foco.src="On.png"
+                var horas1 = horas;
+                
+                setInterval(contador1, 36000000);
+                
+                document.getElementById("reloj").innerHTML = horas1+':'+minutos+':'+segundos;
+            }else{
+                foco.src="Off.png"
+                
+                var horas2=horas;
+                document.getElementById("reloj2").innerHTML = horas2+':'+minutos+':'+segundos;
+                var total = horas2-horas1;
+                var totalp;
+                if (c1 <= 0) {
+                    t1 = 50 ;
+                }else{
+                    t1 = c1 * 50;
+                }
+                document.getElementById("total1").innerHTML =  t1;
+            }
+            
+        }
+        function cambiar2(){
+            let foco = document.getElementById('2');
+
+            if(foco.src.match("Off")){
+                foco.src="On.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+                setInterval(contador2, 36000000);
+                document.getElementById("reloj3").innerHTML = horas+':'+minutos+':'+segundos;
+            }else{
+                foco.src="Off.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+                
+                if (c2 <= 0) {
+                    t2 = 50 ;
+                }else{
+                    t2 = c2 * 50;
+                }
+                document.getElementById("total2").innerHTML =  t2;
+
+                document.getElementById("reloj4").innerHTML = horas+':'+minutos+':'+segundos;
+            }
+
+
+        }
+        function cambiar3(){
+            let foco = document.getElementById('3');
+
+            if(foco.src.match("Off")){
+                foco.src="On.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+                setInterval(contador3, 36000000);
+                document.getElementById("reloj5").innerHTML = horas+':'+minutos+':'+segundos;
+            }else{
+                foco.src="Off.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+
+                if (c3 <= 0) {
+                    t3 = 50 ;
+                }else{
+                    t3 = c3 * 50;
+                }
+                document.getElementById("total3").innerHTML =  t3;
+
+                document.getElementById("reloj6").innerHTML = horas+':'+minutos+':'+segundos;
+            }
+           
+        }
+        function cambiar4(){
+            let foco = document.getElementById('4');
+
+            if(foco.src.match("Off")){
+                foco.src="On.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+                setInterval(contador4, 36000000);
+                document.getElementById("reloj7").innerHTML = horas+':'+minutos+':'+segundos;
+            }else{
+                foco.src="Off.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+
+                if (c4 <= 0) {
+                    t4 = 50 ;
+                }else{
+                    t4 = c4 * 50;
+                }
+                document.getElementById("total4").innerHTML =  t4;
+
+                document.getElementById("reloj8").innerHTML = horas+':'+minutos+':'+segundos;
+            }
+
+        }
+        function cambiar5(){
+            let foco = document.getElementById('5');
+
+            if(foco.src.match("Off")){
+                foco.src="On.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+                setInterval(contador5, 36000000);
+                document.getElementById("reloj9").innerHTML = horas+':'+minutos+':'+segundos;
+            }else{
+                foco.src="Off.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+
+                if (c5 <= 0) {
+                    t5 = 50 ;
+                }else{
+                    t5 = c5 * 50;
+                }
+                document.getElementById("total5").innerHTML =  t5;
+
+                document.getElementById("reloj10").innerHTML = horas+':'+minutos+':'+segundos;
+            }
+            
+        }
+        function cambiar6(){
+            let foco = document.getElementById('6');
+
+            if(foco.src.match("Off")){
+                foco.src="On.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+                setInterval(contador6, 36000000);
+                document.getElementById("reloj11").innerHTML = horas+':'+minutos+':'+segundos;
+            }else{
+                foco.src="Off.png"
+                var fechaHora = new Date();
+                var horas = fechaHora.getHours();
+                var minutos = fechaHora.getMinutes();
+                var segundos = fechaHora.getSeconds();
+
+                if(horas < 10) { horas = '0' + horas; }
+                if(minutos < 10) { minutos = '0' + minutos; }
+                if(segundos < 10) { segundos = '0' + segundos; }
+
+                if (c6 <= 0) {
+                    t6 = 50 ;
+                }else{
+                    t6 = c6 * 50;
+                }
+                document.getElementById("total6").innerHTML =  t6;
+
+                document.getElementById("reloj12").innerHTML = horas+':'+minutos+':'+segundos;
+            }
+            
+        }
+       
+    </script>
+</body>
+</html>
